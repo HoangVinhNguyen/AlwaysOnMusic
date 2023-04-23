@@ -1,0 +1,21 @@
+{
+    "manifest_version": 3,
+    "name": "Always On Music",
+    "description": "A minimal example of a chrome extension using manifest v3",
+    "version": "0.0.1",
+    "action": {
+        "default_title": "Always On Music",
+        "default_popup": "popup/popup.html"
+    },
+    "permissions": ["webNavigation", "storage", "identity","scripting", "activeTab", "tabs"],
+    "host_permissions": [
+        "*://*/*"
+    ],
+    "background": {
+        "service_worker": "service-worker.js"
+    },
+    "content_scripts": [{
+        "js": ["foreground.js"],
+        "matches": ["*://*/*"]
+    }]
+}
